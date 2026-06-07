@@ -90,8 +90,6 @@ body::before {
   width: 100%;
   margin: 0 auto;
   padding: 32px 24px 64px;
-  /* prevent any child from punching outside */
-  overflow: hidden;
 }
 
 /* Top bar */
@@ -739,10 +737,16 @@ body::before {
   display: flex;
   gap: 8px;
   margin-bottom: 14px;
+  width: 100%;
 }
 
 .links-add-row .input-field {
-  flex: 1.2;
+  flex: 1;
+  min-width: 0; /* allow inputs to shrink below content size */
+}
+
+.links-add-row .btn {
+  flex-shrink: 0; /* Add button never shrinks */
 }
 
 .links-grid {
